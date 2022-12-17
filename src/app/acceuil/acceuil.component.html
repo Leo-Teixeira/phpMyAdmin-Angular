@@ -1,0 +1,66 @@
+<mat-toolbar color="Accent">
+  <mat-toolbar-row>
+    <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <span class="material-symbols-outlined">
+          menu
+        </span>
+      </button>
+    </div>
+    <span>Paul Rinfray</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" aria-label="Settings Icon">
+      <span class="material-symbols-outlined">
+        settings
+      </span>
+    </button>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span class="example-spacer"></span>
+    <button mat-button>QUERY</button>
+    <button mat-button>IMPORT</button>
+    <button mat-button>EXPORT</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Options :</p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Search Database</mat-label>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+    <mat-list-item *ngFor="let test of list">
+      <button mat-button>{{test}}</button>
+    </mat-list-item>
+  </mat-drawer>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Search Database</mat-label>
+    <input matInput placeholder="name">
+  </mat-form-field>
+
+  <mat-list-item *ngFor="let test of list">
+    <mat-card>
+      <mat-card-content>{{test}}</mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a menu icon" (click)="delete(test);">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
+        <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+          <span class="material-symbols-outlined">
+            publish
+          </span>
+        </button>
+        <button mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">
+          <span class="material-symbols-outlined">
+            export_notes
+          </span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-list-item>
+</mat-drawer-container>
